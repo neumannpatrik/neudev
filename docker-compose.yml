@@ -1,0 +1,29 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: neudev_postgres
+    environment:
+      POSTGRES_DB: neudev_db
+      POSTGRES_USER: neudev_admin
+      POSTGRES_PASSWORD: Patrik20823
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  # Optional: pgAdmin for database management
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: neudev_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@neudev.com
+      PGADMIN_DEFAULT_PASSWORD: Patrik20823
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+volumes:
+  postgres_data: 
