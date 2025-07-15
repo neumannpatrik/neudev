@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className="flex flex-col flex-grow">
       {/* Hero Section */}
-      <section className="container mx-auto px-4 pt-12 pb-0 md:pt-24 flex flex-col md:flex-row items-center md:items-start text-center md:text-left rounded-xl gap-4">
+      <section className="container mx-auto px-4 pt-12 pb-0 md:pt-24 flex flex-col justify-center md:flex-row items-center text-center md:text-left rounded-xl gap-4">
         <div className="flex-1 flex flex-col items-center md:items-start">
           <h1 className="w-full text-3xl md:text-5xl font-extrabold text-primary-light mb-6">
             Complex problems. Clear solutions.
