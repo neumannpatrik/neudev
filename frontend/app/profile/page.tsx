@@ -390,7 +390,7 @@ export default function ProfilePage() {
 
   if (!user) {
     return (
-      <main className="flex flex-col items-center justify-center min-h-[70vh]">
+      <main className="flex flex-col flex-grow items-center justify-center py-16">
         <div className="w-full max-w-md bg-primary-dark rounded-lg shadow-lg p-8">
           <h1 className="text-2xl font-bold text-primary-light mb-6 text-center">My Profile</h1>
           <div className="flex gap-4 justify-center mb-6">
@@ -463,7 +463,7 @@ export default function ProfilePage() {
           {/* Project Tabs with Add Project button in the same row */}
           <div className="flex gap-2 mb-4 overflow-x-auto items-center">
             {user.isAdmin && (
-              <button className="px-4 py-2 rounded bg-green-600 text-white font-semibold hover:bg-green-700 transition" onClick={openCreateModal}>Add New</button>
+              <button className="px-4 py-2 rounded bg-green-600 text-white font-semibold hover:bg-green-700 transition" onClick={openCreateModal}>Add new</button>
             )}
             {sortedProjects.map((project) => (
               <button

@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center py-16">
+    <main className="flex flex-col flex-grow items-center justify-center py-16">
       <section className="container mx-auto px-4 flex flex-col items-center">
         <h2 className="text-3xl md:text-4xl font-bold text-primary-light mb-6 text-center">Get in Touch</h2>
         <p className="text-primary-white mb-8 max-w-xl text-center">

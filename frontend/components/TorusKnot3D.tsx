@@ -49,7 +49,7 @@ export default function TorusKnot3D() {
       const ambient = new THREE.AmbientLight(0xffffff, 0.6);
       scene.add(ambient);
       const directional = new THREE.DirectionalLight(0xffffff, 0.5);
-      directional.position.set(2, 3, 5);
+      directional.position.set(6, 3, 5);
       scene.add(directional);
 
       const animate = () => {

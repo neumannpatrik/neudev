@@ -6,28 +6,28 @@ const TorusKnot3D = dynamic(() => import('../components/TorusKnot3D'), { ssr: fa
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="flex flex-col flex-grow">
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-24 flex flex-col md:flex-row items-center text-left rounded-xl mt-8 gap-4">
-        <div className="flex-shrink-0 flex justify-center items-center">
-          <TorusKnot3D />
-        </div>
-        <div className="flex-1">
+      <section className="container mx-auto px-4 pt-12 pb-0 md:pt-24 flex flex-col md:flex-row items-center md:items-start text-center md:text-left rounded-xl gap-4">
+        <div className="flex-1 flex flex-col items-center md:items-start">
           <h1 className="w-full text-3xl md:text-5xl font-extrabold text-primary-light mb-6">
             Complex problems. Clear solutions.
           </h1>
-          <p className="w-full text-xl md:text-2xl text-primary-white">
-            Providing efficient, end-to-end software development and problem-solving for your business.
+          <p className="w-full text-md md:text-2xl text-primary-white">
+            Delivering efficient, full-stack software solutions with a focus on your unique challenges.
           </p>
+        </div>
+        <div className="flex-shrink-0 flex justify-center">
+          <TorusKnot3D />
         </div>
       </section>
 
       {/* Solutions Section */}
-      <section className="container mx-auto">
+      <section className="container mx-auto px-4 py-10 md:py-22">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="bg-primary-medium p-8 rounded-xl flex flex-col items-start hover:scale-105 transition-transform">
             <FaCogs className="text-4xl text-primary-light mb-4" />
-            <h3 className="text-xl font-semibold text-primary-light mb-2">End-to-End Development</h3>
+            <h3 className="text-xl font-semibold text-primary-light mb-2">Full-Stack Development</h3>
             <p className="text-primary-white">From backend to frontend, I build complete, scalable solutions tailored to your needs — no outsourcing, no handoff delays.</p>
           </div>
           <div className="bg-primary-medium p-8 rounded-xl flex flex-col items-start hover:scale-105 transition-transform">
