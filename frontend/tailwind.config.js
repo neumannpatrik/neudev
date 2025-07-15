@@ -13,6 +13,7 @@ module.exports = {
           medium: '#393E46',
           light: '#00ADB5',
           white: '#EEEEEE',
+          accent: '#38bdf8',        // cyan accent for links/highlights
         },
       },
     },

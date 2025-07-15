@@ -15,30 +15,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.get('/', (req, res) => {
-  res.json({
-    message: 'Welcome to Neudev API',
-    version: '1.0.0',
-    status: 'running'
-  });
-});
-
-app.get('/api/health', (req, res) => {
-  res.json({
-    status: 'healthy',
-    timestamp: new Date().toISOString(),
-    uptime: process.uptime()
-  });
-});
+const apiRoutes = require('./routes');
+app.use('/api', apiRoutes);
 
 // Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({
-    error: 'Something went wrong!',
-    message: process.env.NODE_ENV === 'development' ? err.message : 'Internal server error'
-  });
-});
+const errorHandler = require('./middleware/errorHandler');
+app.use(errorHandler);
 
 // 404 handler
 app.use('*', (req, res) => {

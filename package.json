@@ -17,6 +17,7 @@
     "install:all": "npm install --legacy-peer-deps && cd frontend && npm install --legacy-peer-deps && cd ../backend && npm install --legacy-peer-deps"
   },
   "devDependencies": {
+    "@types/three": "^0.178.1",
     "concurrently": "^9.0.0",
     "prisma": "^6.11.1"
   },
@@ -24,6 +25,10 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
-    "@prisma/client": "^6.11.1"
+    "@prisma/client": "^6.11.1",
+    "bootstrap": "^5.3.3",
+    "jwt-decode": "^4.0.0",
+    "react-icons": "^5.5.0",
+    "three": "^0.178.0"
   }
 }
