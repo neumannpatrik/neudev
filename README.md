@@ -199,6 +199,26 @@ The frontend is built with NextJS 14 using the App Router, TypeScript, and Tailw
 ### Backend Development
 The backend is an Express.js API with Prisma ORM for database operations. It follows REST best practices and includes proper error handling and middleware.
 
-## Deployment
+## 🚀 Production Deployment with Docker Compose
 
-The project is designed to be deployed on Railway, but can be adapted for other platforms like Vercel, Heroku, or AWS.
+1. **Set up environment variables:**
+   - Copy `backend/.env` and `frontend/.env` and fill in secrets (DB password, JWT secret, etc).
+2. **Build and start all services:**
+   ```sh
+   docker-compose up -d --build
+   ```
+3. **Access your app:**
+   - Frontend: http://your-server-ip:3000
+   - Backend API: http://your-server-ip:3001
+   - pgAdmin: http://your-server-ip:5050
+4. **(Recommended) Set up a reverse proxy (Nginx, Caddy) for HTTPS and domain routing.**
+5. **Monitor logs:**
+   ```sh
+   docker-compose logs -f
+   ```
+6. **Update:**
+   ```sh
+   git pull && docker-compose up -d --build
+   ```
+
+**Security:** Never commit real secrets to git. Use `.env` files for sensitive data.
