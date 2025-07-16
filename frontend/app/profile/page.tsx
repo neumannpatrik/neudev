@@ -76,7 +76,7 @@ export default function ProfilePage() {
   // Fetch all users for admin client selection
   useEffect(() => {
     if (user?.isAdmin && token) {
-      fetch('http://localhost:3001/api/users', {
+      fetch('/api/users', {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then(res => res.json())
@@ -93,7 +93,7 @@ export default function ProfilePage() {
   async function fetchProjects() {
     setError('');
     try {
-      const res = await fetch('http://localhost:3001/api/projects', {
+      const res = await fetch('/api/projects', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -127,7 +127,7 @@ export default function ProfilePage() {
     e.preventDefault();
     setError('');
     try {
-      const url = modalMode === 'create' ? 'http://localhost:3001/api/projects' : `http://localhost:3001/api/projects/${selectedProject?.id}`;
+      const url = modalMode === 'create' ? '/api/projects' : `/api/projects/${selectedProject?.id}`;
       const method = modalMode === 'create' ? 'POST' : 'PUT';
       const body = user?.isAdmin ? { ...form } : { title: form.title, description: form.description, status: form.status };
       const res = await fetch(url, {
@@ -151,7 +151,7 @@ export default function ProfilePage() {
     if (!confirm('Are you sure you want to delete this project?')) return;
     setError('');
     try {
-      const res = await fetch(`http://localhost:3001/api/projects/${id}`, {
+      const res = await fetch(`/api/projects/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -203,8 +203,8 @@ export default function ProfilePage() {
     try {
       const url =
         activityModalMode === 'create'
-          ? `http://localhost:3001/api/activities/project/${activityProjectId}`
-          : `http://localhost:3001/api/activities/${activityForm.id}`;
+          ? `/api/activities/project/${activityProjectId}`
+          : `/api/activities/${activityForm.id}`;
       const method = activityModalMode === 'create' ? 'POST' : 'PUT';
       const res = await fetch(url, {
         method,
@@ -227,7 +227,7 @@ export default function ProfilePage() {
     if (!confirm('Are you sure you want to delete this activity?')) return;
     setError('');
     try {
-      const res = await fetch(`http://localhost:3001/api/activities/${id}`, {
+      const res = await fetch(`/api/activities/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -245,7 +245,7 @@ export default function ProfilePage() {
       // Find the activity in the current project
       const activity = activeProject?.activities.find(a => a.id === activityId);
       if (!activity) throw new Error('Activity not found.');
-      const res = await fetch(`http://localhost:3001/api/activities/${activityId}`, {
+      const res = await fetch(`/api/activities/${activityId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -274,7 +274,7 @@ export default function ProfilePage() {
     e.preventDefault();
     setAuthError('');
     try {
-      const res = await fetch('http://localhost:3001/api/auth/login', {
+      const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: authForm.email, password: authForm.password }),
@@ -293,7 +293,7 @@ export default function ProfilePage() {
     e.preventDefault();
     setAuthError('');
     try {
-      const res = await fetch('http://localhost:3001/api/auth/register', {
+      const res = await fetch('/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: authForm.name, email: authForm.email, password: authForm.password }),
@@ -301,7 +301,7 @@ export default function ProfilePage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Registration failed');
       // Auto-login after registration
-      const loginRes = await fetch('http://localhost:3001/api/auth/login', {
+      const loginRes = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: authForm.email, password: authForm.password }),
@@ -359,7 +359,7 @@ export default function ProfilePage() {
   async function toggleProjectStatus(project: Project) {
     setError('');
     try {
-      const res = await fetch(`http://localhost:3001/api/projects/${project.id}`, {
+      const res = await fetch(`/api/projects/${project.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
