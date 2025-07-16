@@ -46,7 +46,7 @@ services:
     container_name: neudev_frontend
     environment:
       NODE_ENV: production
-      NEXT_PUBLIC_API_URL: http://backend:3001
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
     ports:
       - "3000:3000"
     depends_on:
